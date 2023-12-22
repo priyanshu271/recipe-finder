@@ -13,6 +13,7 @@ export class RecipeSearchComponent {
   public searchRecipeForm: FormGroup = new FormGroup({});
   public isInputError: boolean = false;
   public inputErrorMsg:string='';
+  /** strore recipe info response */
   public allRecipesInfo: any[] = [];
   public recipeData: RecipeModel[] = [];
   public isApiError: boolean = false;
@@ -36,7 +37,6 @@ export class RecipeSearchComponent {
    */
 
   public searchRecipe(): void {
-    console.log(this.searchRecipeForm.controls['recipeName'].value,'form')
     if (!this.searchRecipeForm.valid) {
       this.isInputError = true;
       this.inputErrorMsg = 'Field cannot be empty';
@@ -64,14 +64,10 @@ export class RecipeSearchComponent {
               this.isApiError = true;
               this.apiErrorMsg = 'No recipe data found or invalid dish/ingredient.'; // Set error message for missing or invalid data
               this.inputErrorMsg='';
+              this.recipeData=[];
             }
             this.showRecipeName =  this.searchRecipeForm.controls['recipeName'].value;
             this.searchRecipeForm.controls['recipeName'].setValue('');
-          },
-          (error: any) => {
-            console.log(error, 'errr');
-            this.isApiError = true;
-            this.apiErrorMsg = 'An error occurred while fetching data.'; // Set error message for API error
           }
         );
     }

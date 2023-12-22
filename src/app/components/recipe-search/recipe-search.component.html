@@ -10,7 +10,7 @@
             <input type="text" formControlName="recipeName" placeholder="Enter a dish/ingredient">
             <button (click)="searchRecipe()" class="search-button">Find recipe</button>
         </div>
-        <div *ngIf="showRecipeName" class="recipe-name">
+        <div *ngIf="showRecipeName && !isApiError" class="recipe-name">
             Showing recipes for {{showRecipeName}}
         </div>
         <ng-container *ngFor="let recipe of recipeData">
