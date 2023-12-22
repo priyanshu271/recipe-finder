@@ -1,0 +1,61 @@
+.input-error{
+    color:red;
+}
+.recipe-info{
+    color:white;
+    padding: 10px;
+    margin-top:20px;
+    background-color: rgba(108, 107, 108, 0.8);
+}
+
+.api-error{
+    color: red;
+    font-family: PT Serif;
+}
+.input-error, .api-error{
+    margin-bottom:10px;
+}
+a {
+  text-decoration: none;
+  color:white;  
+}
+a:hover{
+   color: black;
+}
+.recipe-image {
+    display: block; /* Set the image as a block element */
+    margin-bottom: 10px; /*  Bottom margin for spacing */
+  }
+  
+  /* CSS for the recipe link */
+  .recipe-link {
+    display: block; /* Set the link as a block element */
+  }
+  .search-container{
+    display: flex;
+   gap:5px;
+  }
+  .search-container input{
+    border-radius: 10px;
+    padding:10px;
+    background-color: #242421;
+    color:white;
+  }
+  .search-container .search-button{
+    background-color: #242421;
+    color:#ffffff;
+    border-radius: 10px;
+  }
+.search-button:hover{
+    cursor: pointer;
+  }
+  ::placeholder {
+    color: white;
+    opacity: 0.5; 
+  }
+.recipe-name{
+    color:white;
+    display: flex;
+    margin-top:10px;
+    padding: 10px;
+}

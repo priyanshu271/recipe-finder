@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    margin: 50px 0 0 0;
+    padding: 0;
+    height: auto;
+    font-family: 'Roboto', sans-serif;
+    background: url('./assets/pexels-pixabay-326281.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    overflow-y: auto;
+}
+
+/* 
+The body::before pseudo-element creates an overlay on top of the body content.
+Adjust the background-color property's alpha channel (the last value in rgba) to set the opacity level. The value 0.5 represents the opacity level (0 is fully transparent, and 1 is fully opaque).
+Ensure the z-index of the pseudo-element is lower than the body content (e.g., -1) to keep it as the background. */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}

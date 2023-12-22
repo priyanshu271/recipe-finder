@@ -1,0 +1,34 @@
+<form [formGroup]="searchRecipeForm">
+    <div class="container">
+        <div *ngIf="isApiError" class="api-error">
+            {{apiErrorMsg}}
+        </div>
+        <div *ngIf="isInputError" class="input-error">
+            {{inputErrorMsg}}
+        </div>
+        <div class="search-container" [ngClass]="isInputError ? 'input-error' : ''">
+            <input type="text" formControlName="recipeName" placeholder="Enter a dish/ingredient">
+            <button (click)="searchRecipe()" class="search-button">Find recipe</button>
+        </div>
+        <div *ngIf="showRecipeName" class="recipe-name">
+            Showing recipes for {{showRecipeName}}
+        </div>
+        <ng-container *ngFor="let recipe of recipeData">
+            <div class="recipe-info">
+                <p>Calories: {{ recipe.calories }}</p>
+                <p *ngIf="recipe.totalTime != 0" else totalTime>
+                    Total Time: Time as per preparation</p>
+                <ng-template #totalTime>
+                    Total Time: {{recipe.totalTime}}
+                </ng-template>
+                <p>Cuisine Type: {{ recipe.cuisineType }}</p>
+                <p>Dish Type: {{ recipe.dishType }}</p>
+                <p>Recipe Label: {{ recipe.label }}</p>
+                <img [src]="recipe.images.THUMBNAIL.url" class="recipe-image">
+                <p>Recipe instructions:<a href="{{recipe.url}}" class="recipe-link"> Click to see the full recipe.</a>
+                </p>
+            </div>
+            <hr />
+        </ng-container>
+    </div>
+</form>
