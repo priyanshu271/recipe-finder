@@ -15,11 +15,11 @@
         </div>
         <ng-container *ngFor="let recipe of recipeData">
             <div class="recipe-info">
-                <p>Calories: {{ recipe.calories }}</p>
-                <p *ngIf="recipe.totalTime != 0" else totalTime>
+                <p>Calories: {{ recipe.calories.toFixed(2) }}</p>
+                <p *ngIf="recipe.totalTime === 0" else totalTime>
                     Total Time: Time as per preparation</p>
                 <ng-template #totalTime>
-                    Total Time: {{recipe.totalTime}}
+                    Total Time: {{recipe.totalTime}} mins
                 </ng-template>
                 <p>Cuisine Type: {{ recipe.cuisineType }}</p>
                 <p>Dish Type: {{ recipe.dishType }}</p>
